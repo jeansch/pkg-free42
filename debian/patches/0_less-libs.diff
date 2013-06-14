@@ -1,0 +1,16 @@
+Description: do not link against unused libraryes
+Author: Jean Schurger <jean@schurger.org>
+* gtk/Makefile: use -Wl,--as-needed to prevent the link to unused libraries
+Last-Update: 2010-12-24 
+diff -uNr _1/gtk/Makefile _2/gtk/Makefile
+--- _1/gtk/Makefile	2010-12-15 11:06:15.328000311 -0500
++++ _2/gtk/Makefile	2010-12-15 11:07:08.104000312 -0500
+@@ -20,7 +20,7 @@
+ LIBS := -lXmu $(shell pkg-config --libs gtk+-2.0)
+ 
+ ifeq "$(shell uname -s)" "Linux"
+-LDFLAGS += -Wl,--hash-style=both
++LDFLAGS += -Wl,--hash-style=both -Wl,--as-needed
+ endif
+ 
+ SRCS = shell_main.cc shell_skin.cc skins.cc keymap.cc shell_loadimage.cc \

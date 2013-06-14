@@ -1,0 +1,8 @@
+gtk/README                usr/share/doc/free42
+gtk/keymap.txt            usr/share/doc/free42
+gtk/free42bin             usr/bin
+gtk/free42dec             usr/bin
+gtk/free42.xpm            usr/share/pixmaps
+debian/free42bin.desktop  usr/share/applications
+debian/free42dec.desktop  usr/share/applications
+CREDITS                   usr/share/doc/free42

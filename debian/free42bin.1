@@ -1,0 +1,59 @@
+.TH "free42bin" "1" "December 2010" "Free42" ""
+.SH "NAME"
+free42bin, free42dec \- HP42S Calculator Emulator
+.SH "SYNOPSIS"
+.B free42bin
+.RB [ \-skin
+.I SKIN
+]
+.SH "DESCRIPTION"
+Free42 is a complete re-implementation of the HP-42S scientific programmable
+RPN calculator.
+The
+.I SKIN
+argument lets you choose between a
+.I Standard
+or
+.I Realistic
+look for the emulator.
+.SH "DOCUMENTATION"
+The ultimate documentation for Free42 is the manual for the HP-42S. You can
+obtain this manual in PDF format by purchasing the CD or DVD set from The
+Museum of HP Calculators (http://hpmuseum.org/). Alternatively, there is an
+independently written HP-42S/Free42 manual, by Jose Lauro Strapasson, which
+you can download free at http://joselauro.com/42s.pdf.
+.SH "EDITIONS"
+What's the deal with the "Decimal" and "Binary" (free42dec/free42bin)?
+
+Starting with release 1.4, Free42 comes in decimal and binary versions. The two
+look and behave identically; the only difference is the way they represent
+numbers internally.
+Free42 Decimal (free42dec) uses Hugh Steers' 7-digit base-10000 BCD20 library,
+which effectively gives 25 decimal digits of precision, with exponents ranging
+from \-10000 to +9999. Each number consumes 16 bytes of memory.
+Free42 Binary (free42bin) uses the PC's FPU; it represents numbers as IEEE-754
+compatible double precision binary floating point, which consumes 8 bytes per
+number, and gives an effective precision of nearly 16 decimal digits, with
+exponents ranging from \-308 to +307 (actually, exponents can be less than \-308;
+such small numbers are "denormalized" and don't have the full precision of
+"normalized" numbers).
+The binary version has the advantage of being much faster than the decimal
+version; also, it uses less memory. However, numbers such as 0.1 (one-tenth)
+cannot be represented exactly in binary, since they are repeating fractions
+then. This inexactness can cause some HP-42S programs to fail.
+If you understand the issues surrounding binary floating point, and you do not
+rely on legacy software that may depend on the exactness of decimal fractions,
+you may use Free42 Binary and enjoy its speed advantage. If, on the other hand,
+you need full HP-42S compatibility, you should use Free42 Decimal.
+If you don't fully understand the above, it is best to play safe and use
+Free42 Decimal (free42dec).
+.SH "SEE ALSO"
+The original documentation provided upstream, available in
+/usr/share/doc/free42/README.gz
+The keymap in
+/usr/share/doc/free42/keymap.txt.gz
+.SH "AUTHORS/CREDITS"
+Free42 is (C) 2004-2010, by Thomas Okken
+BCD support (C) 2005-2009, by Hugh Steers / voidware
+.SH "LICENSE"
+GPL-2

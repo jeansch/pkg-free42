@@ -1,0 +1,17 @@
+Source: free42
+Section: otherosfs
+Priority: optional
+Homepage: http://thomasokken.com/free42/
+Maintainer: Jean Schurger <jean@schurger.org>
+Build-Depends: debhelper (>= 7.0.50), libxmu-dev, libgtk2.0-dev (>= 2.10.3)
+Standards-Version: 3.9.1
+
+Package: free42
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}, debconf | debconf-2.0
+Description: HP42S calculator emulator
+ Free42 is a complete re-implementation of the HP-42S scientific programmable
+ RPN calculator, which was made from 1988 until 1995 by Hewlett-Packard.
+ The free42 program provides you a software clone of the HP-42S calculator
+ running on your X desktop. It include an 82240 printer emulation, displaying
+ it's output on your screen.

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=HP42S Emulator "Binary" Edition
+GenericName=HP42S Emulator
+Comment=Use an HP42S on your desktop
+TryExec=free42bin
+Exec=free42bin
+Icon=/usr/share/pixmaps/free42.xpm
+Terminal=false
+Type=Application
+Categories=GTK;Utility;Calculator
+StartupNotify=true
